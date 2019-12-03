@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="58dp"
+    android:gravity="center_vertical"
+    android:background="#3097FD">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:src="@mipmap/soldier"
+
+       />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="消息"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"/>
+
+
+    <ImageView
+        android:id="@+id/tv_jia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/header_btn_add_nor"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:textSize="40sp"/>
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@mipmap/ca"
+        android:layout_toLeftOf="@id/tv_jia"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

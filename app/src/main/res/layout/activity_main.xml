@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:hjm="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fl_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#22000000"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <RadioButton
+            android:id="@+id/rb_msg"
+            style="@style/bottomStyle"
+            android:checked="true"
+            android:drawableTop="@drawable/ic_tab_message_selector"
+            android:text="消息"
+            />
+
+
+        <RadioButton
+            android:id="@+id/rb_friend"
+            style="@style/bottomStyle"
+            android:drawableTop="@drawable/ic_tab_friends_selector"
+            android:text="好友"
+            />
+
+        <RadioButton
+            android:id="@+id/rb_my"
+            android:drawableTop="@drawable/ic_tab_my_selector"
+            android:text="我的"
+            style="@style/bottomStyle" />
+
+    </RadioGroup>
+</LinearLayout>
