@@ -42,5 +42,5 @@
         android:padding="3dp"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:text="16:22:17"/>
+        />
 </LinearLayout>

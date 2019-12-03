@@ -76,6 +76,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             name = bean.getName();
             msg = bean.getTempMsg();
             date = bean.getDate();
+
             mList.add(new MessageInfo(msg, date,10,imageId));
         }
         ltdx.setText(name);
@@ -108,9 +109,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 }else {
                     Toast.makeText(this, "请输入内容", Toast.LENGTH_SHORT).show();
                 }
-                if (content.contains("你好")){
-                    mList.add(new MessageInfo("你好，很高兴认识你",GetFormatDate.getFormatedDate(System.currentTimeMillis()),10,imageId));
-                }
+                et_content.setText(null);
+
+                checkContain(content);
+
                 break;
             case R.id.btn_back:
                 ChatActivity.this.finish();
@@ -126,5 +128,17 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 hideKeyword();
                 break;
         }
+    }
+
+    private void checkContain(String content) {
+            if (content.contains("你好")){
+                mList.add(new MessageInfo("你好，很高兴认识你",GetFormatDate.getFormatedDate(System.currentTimeMillis()),10,imageId));
+            }else if (content.contains("一起吃鸡")||content.contains("玩不玩LOL")){
+                mList.add(new MessageInfo("好啊，大神求带，我划水，保证不坑！",GetFormatDate.getFormatedDate(System.currentTimeMillis()),10,imageId));
+            }else if (content.contains("爱你")){
+                mList.add(new MessageInfo("我也爱你，么么哒",GetFormatDate.getFormatedDate(System.currentTimeMillis()),10,imageId));
+            }else if (content.contains("今天几号了")||content.contains("今天天气怎么样")){
+                mList.add(new MessageInfo("我特喵的哪里知道，自己看手机",GetFormatDate.getFormatedDate(System.currentTimeMillis()),10,imageId));
+            }
     }
 }

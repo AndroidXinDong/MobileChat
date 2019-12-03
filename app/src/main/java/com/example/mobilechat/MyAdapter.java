@@ -1,6 +1,7 @@
 package com.example.mobilechat;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +74,10 @@ public class MyAdapter extends RecyclerView.Adapter<AppHolder> {
         String date = appInfo.getDate();
         holder.msg_time.setText(date);
         int touxaign = appInfo.getTouxaign();
-        holder._iv.setImageResource(touxaign);
+
+            holder._iv.setImageResource(touxaign);
+
+
         if (onItemClickListener != null) {
             //点击事件
             holder.item_ll.setOnClickListener(new View.OnClickListener() {
