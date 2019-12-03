@@ -2,6 +2,8 @@ package com.example.mobilechat.pagers;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.net.Uri;
 import android.util.Log;
@@ -15,6 +17,8 @@ import com.example.mobilechat.LoginActivity;
 import com.example.mobilechat.MiddleActivity;
 import com.example.mobilechat.PreferencesHelp;
 import com.example.mobilechat.R;
+import com.vondear.rxtools.RxPhotoTool;
+import com.vondear.rxtools.RxPictureTool;
 
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -53,24 +57,22 @@ public class MyFragment extends BasePager {
         swp.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                String tx1 = PreferencesHelp.getVal(mContext, "tx1");
-                Log.i("Tag", "onRefresh: "+tx1);
-                Uri parse = Uri.parse(tx1);
-                if (parse != null) {
-                    Log.i("Tag", "onRefresh: "+parse);
-                    Glide.with(mContext).load(parse).into(images_head);
+                String picPath = PreferencesHelp.getVal(mContext, "tx1");
+                BitmapFactory.Options s = new BitmapFactory.Options();
+                s.inSampleSize = 2;
+                Bitmap bitmap = BitmapFactory.decodeFile(picPath,s);
+                if (bitmap != null) {
+                    images_head.setImageBitmap(bitmap);
                 }
 
                 swp.setRefreshing(false);
             }
         });
         return mView;
-
     }
 
     @Override
     public void initData() {
-
     }
 
 }
