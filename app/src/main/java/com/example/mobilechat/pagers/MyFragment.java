@@ -57,18 +57,23 @@ public class MyFragment extends BasePager {
         swp.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                String picPath = PreferencesHelp.getVal(mContext, "tx1");
-                BitmapFactory.Options s = new BitmapFactory.Options();
-                s.inSampleSize = 2;
-                Bitmap bitmap = BitmapFactory.decodeFile(picPath,s);
-                if (bitmap != null) {
-                    images_head.setImageBitmap(bitmap);
-                }
+                updateTx();
 
                 swp.setRefreshing(false);
             }
         });
+        updateTx();
         return mView;
+    }
+
+    private void updateTx() {
+        String picPath = PreferencesHelp.getVal(mContext, "tx1");
+        BitmapFactory.Options s = new BitmapFactory.Options();
+        s.inSampleSize = 2;
+        Bitmap bitmap = BitmapFactory.decodeFile(picPath,s);
+        if (bitmap != null) {
+            images_head.setImageBitmap(bitmap);
+        }
     }
 
     @Override

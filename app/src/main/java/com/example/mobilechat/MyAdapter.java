@@ -1,6 +1,8 @@
 package com.example.mobilechat;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
@@ -74,8 +76,18 @@ public class MyAdapter extends RecyclerView.Adapter<AppHolder> {
         String date = appInfo.getDate();
         holder.msg_time.setText(date);
         int touxaign = appInfo.getTouxaign();
-
+        String picPath = PreferencesHelp.getVal(mContext, "tx1");
+        if (picPath != null && appInfo.getType()!=10) {
+            BitmapFactory.Options s = new BitmapFactory.Options();
+            s.inSampleSize = 2;
+            Bitmap bitmap = BitmapFactory.decodeFile(picPath,s);
+            if (bitmap != null) {
+                holder._iv.setImageBitmap(bitmap);
+            }
+        }else {
             holder._iv.setImageResource(touxaign);
+        }
+
 
 
         if (onItemClickListener != null) {
